@@ -51,6 +51,28 @@ namespace calculator
     {
         // ---------- TODO ----------
         
+        public double Calculate(double num1, string op, double num2)
+        {
+            switch (op)
+            {
+                case "+":
+                    return num1 + num2;
+                case "-":
+                    return num1 - num2;
+                case "*":
+                    return num1 * num2;
+                case "/":
+                    if (num2 == 0)
+                    {
+                        throw new DivideByZeroException("Cannot divide by zero");
+                    }
+                    return num1 / num2;
+                default:
+                    throw new ArgumentException($"Unsupported operator: {op}");
+            }
+        }
+    
+
         // --------------------
     }
 }
